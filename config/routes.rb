@@ -1,4 +1,9 @@
 ProjectAllocation::Application.routes.draw do
+  devise_for :students
+  resources :dashboard
+  root to: 'static_pages#home'
+  match '/contact', to: 'static_pages#contact'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
