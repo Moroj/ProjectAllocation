@@ -8,4 +8,8 @@ class Student < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
+#  accepts_nested_attributes_for :sprofile
+  has_one :sprofile
+  
+ 
 end

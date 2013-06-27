@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130624170724) do
+ActiveRecord::Schema.define(:version => 20130626101738) do
+
+  create_table "sprofiles", :force => true do |t|
+    t.integer  "sprofile_id", :null => false
+    t.integer  "urn"
+    t.string   "f_name"
+    t.string   "l_name"
+    t.string   "degree"
+    t.string   "course"
+    t.string   "department"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "sprofiles", ["urn"], :name => "sprofiles_urn_ix", :unique => true
 
   create_table "students", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
