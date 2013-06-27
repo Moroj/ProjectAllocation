@@ -1,5 +1,7 @@
 ProjectAllocation::Application.routes.draw do
   
+  devise_for :academics
+
   devise_for :students
   
   resources :sprofiles 

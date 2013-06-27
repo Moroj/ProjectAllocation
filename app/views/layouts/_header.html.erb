@@ -7,13 +7,11 @@
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Help", '#' %></li>
 		  <% if student_signed_in?%>
-			
 			<li id="fat-menu" class="dropdown">
 			   <a  class="dropdown-toggle" data-toggle="dropdown">
 			     Account <b class="caret"></b>
 			   </a>
 			   <ul class="dropdown-menu">
-				
 				<% if Sprofile.where(:sprofile_id => current_student.id).blank?  %>
 					<li><%= link_to "Create Profile", '/sprofiles/new' %></li>
 				<%else%>	
@@ -27,7 +25,28 @@
 			   </ul>
 			 </li>
 		   <% else %>
+		 <% if academic_signed_in?%>
+			<li id="fat-menu" class="dropdown">
+			   <a  class="dropdown-toggle" data-toggle="dropdown">
+			     Account <b class="caret"></b>
+			   </a>
+			   <ul class="dropdown-menu">
+				<% if Aprofile.where(:aprofile_id => current_academic.id).blank?  %>
+					<li><%= link_to "Create Profile", '/aprofiles/new' %></li>
+				<%else%>	
+			     	<li><%= link_to "View Profile", aprofile_path(current_academic.id) %></li>
+				<%end%>
+			     <li><%= link_to "Settings", edit_academic_password_path(current_academic) %></li>
+			     <li class="divider"></li>
+			     <li>
+			        <%= link_to "Sign out", destroy_academict_session_path, method: "delete" %>
+			     </li>
+			   </ul>
+			 </li>
+		  <% else %>	
           		<li><%= link_to "Students Sign in", new_student_session_path %></li>
+				<li><%= link_to "Academics Sign in", new_academic_session_path %></li>
+		   <% end %>
 		   <% end %>
         </ul>
       </nav>
