@@ -4,6 +4,8 @@ ProjectAllocation::Application.routes.draw do
 
   devise_for :students
   
+  resources :aprofiles
+  
   resources :sprofiles 
   
   root to: 'static_pages#home'

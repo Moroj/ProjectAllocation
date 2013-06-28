@@ -1,8 +1,6 @@
 class SprofilesController < ApplicationController
   before_filter :authenticate_student!
-  
-  
-  
+
   def new
     @sprofile = Sprofile.new
     @sprofile.sprofile_id = current_student.id
@@ -34,7 +32,5 @@ class SprofilesController < ApplicationController
         format.html # show.html.erb
         format.json { render :json => @sprofile }
       end
-      end  
-      
-     
+    end   
 end

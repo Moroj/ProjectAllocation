@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130627161706) do
+ActiveRecord::Schema.define(:version => 20130627172234) do
 
   create_table "academics", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -26,10 +26,26 @@ ActiveRecord::Schema.define(:version => 20130627161706) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.integer  "failed_attempts",        :default => 0
+    t.string   "unlock_token"
+    t.datetime "locked_at"
+    t.string   "authentication_token"
   end
 
   add_index "academics", ["email"], :name => "index_academics_on_email", :unique => true
   add_index "academics", ["reset_password_token"], :name => "index_academics_on_reset_password_token", :unique => true
+
+  create_table "aprofiles", :force => true do |t|
+    t.integer  "aprofile_id", :null => false
+    t.integer  "urn"
+    t.string   "f_name"
+    t.string   "l_name"
+    t.string   "department"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "aprofiles", ["urn"], :name => "aprofiles_urn_ix", :unique => true
 
   create_table "sprofiles", :force => true do |t|
     t.integer  "sprofile_id", :null => false
