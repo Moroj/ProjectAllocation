@@ -3,12 +3,11 @@
 <div class="row">
   <aside class="span4">
     <section>
-      <h1>
-     	<p>
+      <h2>	Name:</h2></br>
+		 <%= @sprofile.name%></br>
 		 
-	Name: <%= @sprofile.name%>
-		 
-      </h1>
+		<%= link_to "Edit your profile", edit_sprofile_path(@sprofile.id)%>
+     
     </section>
   </aside>
 </div>

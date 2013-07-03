@@ -1,0 +1,11 @@
+<h1>Editing course</h1>
+
+<%= form_for [:department, @course], :url => admin_department_course_path(@department, @course) do |f| %>
+  
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+
+  <p><%= f.submit %></p>
+<% end %>

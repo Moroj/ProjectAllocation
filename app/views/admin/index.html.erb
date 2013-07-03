@@ -1,0 +1,9 @@
+<h1> This is the main page for the Admin</h1>
+	
+	<%= link_to "Create a student", new_admin_student_path %></br>
+	
+	<%= link_to "Students Index", admin_students_path%></br>
+	
+	<%= link_to "Departments and Courses", admin_departments_path%></br>
+	
+	<%= link_to "Sign out", destroy_admin_session_path, method: "delete" %>

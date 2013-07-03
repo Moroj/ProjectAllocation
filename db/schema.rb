@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130627172234) do
+ActiveRecord::Schema.define(:version => 20130703141029) do
 
   create_table "academics", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -35,6 +35,31 @@ ActiveRecord::Schema.define(:version => 20130627172234) do
   add_index "academics", ["email"], :name => "index_academics_on_email", :unique => true
   add_index "academics", ["reset_password_token"], :name => "index_academics_on_reset_password_token", :unique => true
 
+  create_table "admins", :force => true do |t|
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+    t.integer  "failed_attempts",        :default => 0
+    t.string   "unlock_token"
+    t.datetime "locked_at"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+  end
+
+  add_index "admins", ["email"], :name => "index_admins_on_email", :unique => true
+  add_index "admins", ["reset_password_token"], :name => "index_admins_on_reset_password_token", :unique => true
+
   create_table "aprofiles", :force => true do |t|
     t.integer  "aprofile_id", :null => false
     t.integer  "urn"
@@ -47,19 +72,32 @@ ActiveRecord::Schema.define(:version => 20130627172234) do
 
   add_index "aprofiles", ["urn"], :name => "aprofiles_urn_ix", :unique => true
 
+  create_table "courses", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "department_id"
+  end
+
+  create_table "departments", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "sprofiles", :force => true do |t|
-    t.integer  "sprofile_id", :null => false
     t.integer  "urn"
     t.string   "f_name"
     t.string   "l_name"
     t.string   "degree"
     t.string   "course"
     t.string   "department"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "student_id"
   end
 
-  add_index "sprofiles", ["urn"], :name => "sprofiles_urn_ix", :unique => true
+  add_index "sprofiles", ["urn"], :name => "altered_sprofiles_urn_ix", :unique => true
 
   create_table "students", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

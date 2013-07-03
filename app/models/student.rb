@@ -7,9 +7,8 @@ class Student < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  # attr_accessible :title, :body
-
-  has_one :sprofile
+  attr_accessor :accessible
+  has_one :sprofile, :dependent => :destroy, :foreign_key => :student_id
   
  
 end

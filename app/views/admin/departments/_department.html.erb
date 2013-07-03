@@ -1,0 +1,8 @@
+
+<p>
+	<b>Title:</b>
+	<%= department.title %>
+</p>	
+	<%= link_to 'Show', admin_department_path(department.id)%> |
+	<%= link_to 'Edit', edit_admin_department_path(department.id) %> |
+	<%= link_to 'Destroy', admin_department_path(department.id), :confirm => 'Are you sure?', :method => :delete %>

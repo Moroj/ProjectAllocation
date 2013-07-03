@@ -1,0 +1,8 @@
+<%#= div_for(@department.courses) do |f| %>
+
+
+	<tr><td><%= course.title %></td>
+	<td><%= link_to 'Edit', edit_admin_department_course_path(@department.id, course) %></td>
+	<td><%= link_to 'Delete', admin_department_course_path(@department.id, course), :confirm => 'Are you sure?', :method => :delete %></td>
+	</tr>
+<%#end%>

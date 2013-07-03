@@ -1,5 +1,14 @@
 ProjectAllocation::Application.routes.draw do
-  
+   
+  namespace :admin do
+    resources :students 
+    resources :departments do
+      resources :courses
+    end
+  end
+    
+  devise_for :admins
+
   devise_for :academics
 
   devise_for :students
@@ -8,9 +17,12 @@ ProjectAllocation::Application.routes.draw do
   
   resources :sprofiles 
   
+  resources :admin
+  
   root to: 'static_pages#home'
   
-  match '/contact', to: 'static_pages#contact'    
+  match '/contact', to: 'static_pages#contact'
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

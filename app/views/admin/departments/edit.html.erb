@@ -1,0 +1,15 @@
+<% provide(:title, 'Edit a department') %>
+<h1>Edit a department</h1>
+
+<div class="row">
+	<div class="span6 offset3">
+<%= form_for [:admin, @department], :url => admin_department_path(@department.id) do |f| %>
+
+  <p><%= f.label :title, 'Department Title' %><br />
+  <%= f.text_field :title %></p>
+
+  <p><%= f.submit "Update", class: "btn btn-large btn-primary" %></p>
+
+<% end %>
+</div>
+</div>

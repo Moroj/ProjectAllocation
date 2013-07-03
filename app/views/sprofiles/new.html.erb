@@ -14,7 +14,7 @@
 		<%= f.text_field :l_name %>
 		
 		<%= f.label :degree, 'Degree' %>
-		<%= f.text_field :degree %>
+		<%= f.select :degree, ['Bachelor', 'Master', 'PhD'], :prompt => 'Select one' %>
 		
 		<%= f.label :course, 'Course' %>
 		<%= f.text_field :course %>

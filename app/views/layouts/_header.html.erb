@@ -12,7 +12,7 @@
 			     Account <b class="caret"></b>
 			   </a>
 			   <ul class="dropdown-menu">
-				<% if Sprofile.where(:sprofile_id => current_student.id).blank?  %>
+				<% if Sprofile.where(:student_id => current_student.id).blank?  %>
 					<li><%= link_to "Create Profile", '/sprofiles/new' %></li>
 				<%else%>	
 			     	<li><%= link_to "View Profile", sprofile_path(current_student.id) %></li>

@@ -1,0 +1,19 @@
+<% provide(:title, 'Students Index') %>
+<h1>Students</h1>
+
+<table border='1' align='center' cellpadding='5'>
+  <tr>
+	<th>Student URN</th>
+    <th>Full Name</th>
+    <th>Email</th>
+	<th>Degree</th>
+	<th>Department</th>
+	<th>Course</th>
+	<th>&nbsp;</th>
+  </tr>
+
+<%= render @students%>
+
+</table>
+<%= link_to "Create a student", new_admin_student_path %></br>
+
