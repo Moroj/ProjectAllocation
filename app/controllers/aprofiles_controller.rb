@@ -3,13 +3,12 @@ class AprofilesController < ApplicationController
   
   def new
     @aprofile = Aprofile.new
-    @aprofile.aprofile_id = current_academic.id
+    @aprofile.academic_id = current_academic.id
   end
   
   def create
-    
     @aprofile = Aprofile.new(params[:aprofile])
-    @aprofile.aprofile_id = current_academic.id
+    @aprofile.academic_id = current_academic.id
     if @aprofile.save
       flash[:notice] = "You have created your profile successfully!"
       redirect_to root_path
@@ -21,8 +20,8 @@ class AprofilesController < ApplicationController
   
   def show
     
-     @aprofile = Aprofile.find_by_aprofile_id(params[:id])
-     unless current_academic.id == @aprofile.aprofile_id
+     @aprofile = Aprofile.find_by_academic_id(params[:id])
+     unless current_academic.id == @aprofile.academic_id
        flash[:notice] = "You don't have access to this page!"
        redirect_to contact_path
        return
@@ -32,5 +31,21 @@ class AprofilesController < ApplicationController
        format.html # show.html.erb
        format.json { render :json => @aprofile }
      end
+  end
+     
+     def edit
+       @aprofile = Aprofile.find_by_id(params[:id])
      end
+
+     def update
+       @aprofile = Aprofile.find_by_academic_id(params[:id])
+       if @aprofile.update_attributes(params[:aprofile])
+         flash[:notice] = "Your profile was successfully updated!"
+         redirect_to aprofile_path(@aprofile)
+       else
+         flash[:notice] = "Update was not saved."
+         render :action => 'edit'
+       end
+     end
+     
 end

@@ -31,7 +31,7 @@
 			     Account <b class="caret"></b>
 			   </a>
 			   <ul class="dropdown-menu">
-				<% if Aprofile.where(:aprofile_id => current_academic.id).blank?  %>
+				<% if Aprofile.where(:academic_id => current_academic.id).blank?  %>
 					<li><%= link_to "Create Profile", '/aprofiles/new' %></li>
 				<%else%>	
 			     	<li><%= link_to "View Profile", aprofile_path(current_academic.id) %></li>

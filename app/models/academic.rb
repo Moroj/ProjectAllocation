@@ -7,7 +7,7 @@ class Academic < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
+   attr_accessor :accessible
   
-  
-  has_one :aprofile, :dependent => :destroy
+  has_one :aprofile, :dependent => :destroy, :foreign_key => :academic_id
 end

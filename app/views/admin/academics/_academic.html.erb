@@ -1,0 +1,9 @@
+
+<tr>
+	<td><%= academic.aprofile.nil? ?  "empty" : academic.aprofile.urn %></td>
+	<td><%= academic.aprofile.nil? ? "empty" : academic.aprofile.name %></td>
+	<td><%= academic.email %></td>
+	<td><%= academic.aprofile.nil? ? "empty" : academic.aprofile.department %></td>
+	<td><%= link_to 'Destroy' , { :id => academic.id, :action => 'destroy' }, :confirm => 'Are you sure?', :method => :delete %></td>
+
+</tr>

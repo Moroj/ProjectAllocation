@@ -1,0 +1,16 @@
+<% provide(:title, 'Academics Index') %>
+<h1>Academics</h1>
+
+<table border='1' align='center' cellpadding='5'>
+  <tr>
+	<th>Academic URN</th>
+    <th>Full Name</th>
+    <th>Email</th>
+	<th>Department</th>
+	<th>&nbsp;</th>
+  </tr>
+
+<%= render @academics%>
+
+</table>
+<%= link_to "Create an academic", new_admin_academic_path %></br>

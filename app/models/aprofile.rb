@@ -1,10 +1,10 @@
 class Aprofile < ActiveRecord::Base
-  attr_accessible :aprofile_id, :department, :f_name, :l_name, :urn
+  attr_accessible :department, :f_name, :l_name, :urn, :academic_id
   
-  belongs_to :academic
+  belongs_to :academic, :foreign_key => :academic_id
   
   def to_param
-    aprofile_id
+    academic_id
   end
   
   def name

@@ -15,7 +15,7 @@ class Admin::StudentsController < AdminController
     @student.attributes =  params[:student]
     
     if @student.save
-      redirect_to contact_path
+      redirect_to admin_students_path
     else
       render :action => "new"
     end

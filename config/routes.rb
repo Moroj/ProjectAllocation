@@ -2,6 +2,7 @@ ProjectAllocation::Application.routes.draw do
    
   namespace :admin do
     resources :students 
+    resources :academics
     resources :departments do
       resources :courses
     end

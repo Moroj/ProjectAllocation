@@ -1,9 +1,6 @@
 class SprofilesController < ApplicationController
   before_filter :authenticate_student!
-  
-  def index  
-  end
-  
+ 
   def new
     @sprofile = Sprofile.new
     @sprofile.student_id = current_student.id
