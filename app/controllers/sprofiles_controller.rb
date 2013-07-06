@@ -1,9 +1,11 @@
 class SprofilesController < ApplicationController
   before_filter :authenticate_student!
- 
+  
   def new
     @sprofile = Sprofile.new
     @sprofile.student_id = current_student.id
+    @departments = Department.order(:title)
+    @courses = Course.order(:title)
   end
   
   def create
@@ -34,6 +36,8 @@ class SprofilesController < ApplicationController
     
     def edit
       @sprofile = Sprofile.find_by_id(params[:id])
+      @departments = Department.order(:title)
+      @courses = Course.order(:title)
     end
     
     def update
@@ -45,6 +49,11 @@ class SprofilesController < ApplicationController
         flash[:notice] = "Update was not saved."
         render :action => 'edit'
       end
+    end
+    
+    def update_courses
+      department = Department.find(params[:department_id])
+      @courses = department.courses.map{|c| [c.title, c.id]}.insert(0, "Select a Course")
     end
        
 end

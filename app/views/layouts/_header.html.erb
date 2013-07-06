@@ -17,7 +17,7 @@
 				<%else%>	
 			     	<li><%= link_to "View Profile", sprofile_path(current_student.id) %></li>
 				<%end%>
-			     <li><%= link_to "Settings", edit_student_password_path(current_student) %></li>
+			     <li><%= link_to "Settings", '/sdashboard' %></li>
 			     <li class="divider"></li>
 			     <li>
 			        <%= link_to "Sign out", destroy_student_session_path, method: "delete" %>
@@ -36,7 +36,7 @@
 				<%else%>	
 			     	<li><%= link_to "View Profile", aprofile_path(current_academic.id) %></li>
 				<%end%>
-			     <li><%= link_to "Settings", edit_academic_password_path(current_academic) %></li>
+			     <li><%= link_to "Settings", '/adashboard' %></li>
 			     <li class="divider"></li>
 			     <li>
 			        <%= link_to "Sign out", destroy_academic_session_path, method: "delete" %>

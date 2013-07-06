@@ -2,7 +2,7 @@ class Admin::StudentsController < AdminController
  # before_filter :load_sprofile
 
   def index
-    @students = Student.all(:include => :sprofile)
+    @students = Student.order([:email,:include => :sprofile])
   end
   
   def new 

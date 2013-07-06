@@ -1,7 +1,7 @@
 class Admin::DepartmentsController < AdminController
   
   def index
-    @departments = Department.find(:all)
+    @departments = Department.order(:title)
   end
   
   def show
@@ -43,4 +43,5 @@ class Admin::DepartmentsController < AdminController
     @department.destroy
     redirect_to admin_departments_path
   end
+  
 end

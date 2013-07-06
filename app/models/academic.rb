@@ -10,4 +10,7 @@ class Academic < ActiveRecord::Base
    attr_accessor :accessible
   
   has_one :aprofile, :dependent => :destroy, :foreign_key => :academic_id
+  has_many :projects, :dependent => :destroy
+  has_many :students, :through => :projects
+  belongs_to :department
 end

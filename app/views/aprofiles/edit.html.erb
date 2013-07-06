@@ -1,22 +1,4 @@
 <% provide(:title, 'Edit Profile') %>
 <h1>Edit Profile</h1>
+<%= render 'form' %>
 
-<div class="row">
-	<div class="span6 offset3">
-	<%= form_for(@aprofile) do |f| %>
-		<%= f.label :urn, 'URN' %>
-		<%= f.text_field :urn %>
-		
-		<%= f.label :f_name, 'First Name' %>
-		<%= f.text_field :f_name %>
-		
-		<%= f.label :l_name, 'Last Name' %>
-		<%= f.text_field :l_name %>
-	
-		<%= f.label :department, 'Department' %>
-		<%= f.text_field :department %>
-		
-		<%= f.submit "Update", class: "btn btn-large btn-primary" %>
-	<% end %>
-	</div>
-</div>

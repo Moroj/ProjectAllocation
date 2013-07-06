@@ -1,0 +1,45 @@
+<div class="row">
+	<div class="span6 offset3">
+<%= form_for(@project) do |f| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% @project.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :number, "Project ID" %>
+    <%= f.text_field :number %>
+  </div><br />
+  <div class="field">
+    <%= f.label :total_students %>
+    <%= f.text_field :total_students %>
+  </div><br />
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div><br />
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div><br />
+  <div class="field">
+    <%= f.label :requirements %>
+    <%= f.text_area :requirements %>
+  </div><br />
+  <div class="field">
+    <%= f.label :resources %>
+    <%= f.text_area :resources %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+  </div>
+<% end %>
+</div>
+</div>

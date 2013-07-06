@@ -1,7 +1,7 @@
 class Admin::CoursesController < AdminController
   before_filter :load_department
   def index
-    @courses = @department.courses.all
+    @courses = @department.courses.order(:title)
     #@departments = Department.all
   end
   

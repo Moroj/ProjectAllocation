@@ -1,13 +1,15 @@
 <% provide(:title, @aprofile.name) %>
 
-<div class="row">
-  <aside class="span4">
-    <section>
-      <h2>Name: </h2></br>
-     		<%= @aprofile.name%></br>
+<div class="row" >
 
-		 	<%= link_to "Edit your profile", edit_aprofile_path(@aprofile.id)%>
-      
-    </section>
-  </aside>
+			<b>University Number:</b>
+			<%= @aprofile.urn%><br/>
+	
+		    <b>Full Name:</b>
+			<%= @aprofile.name%><br/>
+	
+			<b>Department:</b>
+			<%= @aprofile.department.title %><br/>
+	
+	<%= link_to "Edit your profile", edit_aprofile_path(@aprofile.id)%>
 </div>

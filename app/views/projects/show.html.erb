@@ -1,0 +1,26 @@
+<p>
+	<b>Project Title:</b>
+	<%= @project.title %>
+</p>
+<p>
+	<b>Number of Students Allowed in This Project:</b>
+	<%= @project.total_students%>
+	
+<p>
+	<b>Description:</b>
+	<%= @project.description %>
+</p>
+
+<p>
+	<b>Requirements:</b>
+	<%= @project.requirements %>
+</p>
+
+<p>
+	<b>Resources:</b>
+	<%= @project.resources %>
+</p>	
+<%# if can? :manage, @project %>
+<%= link_to "Edit", edit_project_path(@project)  if can? :manage, @project %> |
+<%#end%>
+<%= link_to "Back", projects_path %>

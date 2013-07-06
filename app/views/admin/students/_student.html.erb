@@ -4,8 +4,8 @@
 	<td><%= student.sprofile.nil? ? "empty" : student.sprofile.name %></td>
 	<td><%= student.email %></td>
 	<td><%= student.sprofile.nil? ? "empty" : student.sprofile.degree %></td>
-	<td><%= student.sprofile.nil? ? "empty" : student.sprofile.department %></td>
-	<td><%= student.sprofile.nil? ? "empty" : student.sprofile.course %></td>
+	<td><%= student.sprofile.nil? ? "empty" : student.sprofile.department.title %></td>
+	<td><%= student.sprofile.nil? ? "empty" : student.sprofile.course.title %></td>
 	<td><%= link_to 'Destroy' , { :id => student.id, :action => 'destroy' }, :confirm => 'Are you sure?', :method => :delete %></td>
 
 </tr>

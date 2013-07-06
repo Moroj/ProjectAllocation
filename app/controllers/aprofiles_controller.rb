@@ -4,6 +4,7 @@ class AprofilesController < ApplicationController
   def new
     @aprofile = Aprofile.new
     @aprofile.academic_id = current_academic.id
+    @departments = Department.order(:title)
   end
   
   def create
@@ -35,6 +36,7 @@ class AprofilesController < ApplicationController
      
      def edit
        @aprofile = Aprofile.find_by_id(params[:id])
+       @departments = Department.order(:title)
      end
 
      def update

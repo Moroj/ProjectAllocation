@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130703223114) do
+ActiveRecord::Schema.define(:version => 20130705085750) do
 
   create_table "academics", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -64,10 +64,10 @@ ActiveRecord::Schema.define(:version => 20130703223114) do
     t.integer  "urn"
     t.string   "f_name"
     t.string   "l_name"
-    t.string   "department"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.integer  "academic_id"
+    t.integer  "department_id"
   end
 
   add_index "aprofiles", ["urn"], :name => "altered_aprofiles_urn_ix", :unique => true
@@ -85,16 +85,28 @@ ActiveRecord::Schema.define(:version => 20130703223114) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "projects", :force => true do |t|
+    t.integer  "academic_id"
+    t.string   "number"
+    t.string   "title"
+    t.text     "description"
+    t.text     "requirements"
+    t.text     "resources"
+    t.integer  "total_students"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
   create_table "sprofiles", :force => true do |t|
     t.integer  "urn"
     t.string   "f_name"
     t.string   "l_name"
     t.string   "degree"
-    t.string   "course"
-    t.string   "department"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "department_id", :limit => 255
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
     t.integer  "student_id"
+    t.integer  "course_id"
   end
 
   add_index "sprofiles", ["urn"], :name => "altered_sprofiles_urn_ix", :unique => true

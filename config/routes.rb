@@ -14,6 +14,8 @@ ProjectAllocation::Application.routes.draw do
 
   devise_for :students
   
+  resources :projects
+  
   resources :aprofiles
   
   resources :sprofiles 
@@ -24,6 +26,15 @@ ProjectAllocation::Application.routes.draw do
   
   match '/contact', to: 'static_pages#contact'
   
+  match '/adashboard', to: 'static_pages#adashboard'
+  
+  match '/sdashboard', to: 'static_pages#sdashboard'
+  
+  match '/update_courses', to:  'sprofiles#update_courses'
+  
+  match '/update_academics', to: 'projects#update_academics'
+  
+  match '/project_list', to: 'projects#list'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

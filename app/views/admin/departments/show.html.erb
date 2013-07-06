@@ -9,18 +9,18 @@
 		
 		<h1>Courses</h1>
 		<div>
-			<table border='1' align='center' cellpadding='5' width= 70%>
+			<table class="table table-striped table-bordered table-condensed" align='center' cellpadding='5' width= 70%>
 			  <tr>
 				<th>Course Title</th>
 			  </tr>
 			<%= render :partial => @department.courses %>
 			</table>
-			<%#= render :partial => 'admin/courses/course' , collection: @department.courses %>
+			
 		</div>
 		<h2>Add a new Course</h2>
 		<div class="row">
 			<div class="span6 offset3">
-		<%#= form_for [:admin, @department, @course], :url => admin_department_courses_path(@department.id) do |f| %>
+		
 		  <%= form_for ([:admin, @department, @department.courses.build]) do |f| %>
 		  
 		    <%= f.label :title, 'Course Title:' %><br />

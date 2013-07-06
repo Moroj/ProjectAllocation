@@ -1,13 +1,21 @@
 <% provide(:title, @sprofile.name) %>
 
-<div class="row">
-  <aside class="span4">
-    <section>
-      <h2>	Name:</h2></br>
-		 <%= @sprofile.name%></br>
-		 
-		<%= link_to "Edit your profile", edit_sprofile_path(@sprofile.id)%>
-     
-    </section>
-  </aside>
+<div class="row" >
+
+			<b>Student URN:</b>
+			<%= @sprofile.urn%><br/>
+	
+		    <b>Full Name:</b>
+			<%= @sprofile.name%><br/>
+		
+		    <b>Degree:</b>
+			<%= @sprofile.degree %><br/>
+	
+			<b>Department:</b>
+			<%= @sprofile.department.title %><br/>
+	
+			<b>Course:</b>
+			<%= @sprofile.course.title %><br/>
+		
+	<%= link_to "Edit your profile", edit_sprofile_path(@sprofile.id)%>
 </div>

@@ -2,9 +2,8 @@ class AdminAbility
   include CanCan::Ability
   
   
-  def initialize
+  def initialize(current_admin)
       can :manage, :all
-      can :manage, Sprofile
   end
   
 end

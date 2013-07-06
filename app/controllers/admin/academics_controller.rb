@@ -1,7 +1,7 @@
 class Admin::AcademicsController < ApplicationController
   
   def index
-     @academics = Academic.all(:include => :aprofile)
+     @academics = Academic.order(:email, :include => :aprofile)
    end
 
    def new 

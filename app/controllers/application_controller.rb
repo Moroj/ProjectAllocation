@@ -1,28 +1,19 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  #load_and_authorize_resource
- 
-  
- # def current_auth_resource
- #   if admin_signed_in?
-  #    current_admin
-  #  elsif academic_signed_in?
-  #    current_academic
-  #  else
-  #    current_student
-  #  end
+
+ # def current_ability
+  #  @current_ability ||= ::Ability.new(current_user)
   #end
   
   def current_ability 
       @current_ability ||= case 
                             when current_admin 
-                              AdminAbility.new 
+                              AdminAbility.new(current_admin)
                             when current_academic
-                              AcademicAbility.new
-                            when current_student
-                             StudentAbility.new
+                              AcademicAbility.new(current_academic)
+                            else current_student
+                             StudentAbility.new(current_student)
                             end
-                           # Current_Ability.new (current_auth_resource)
     
   end
 end
