@@ -1,5 +1,5 @@
 class Admin::StudentsController < AdminController
- # before_filter :load_sprofile
+ 
 
   def index
     @students = Student.order([:email,:include => :sprofile])

@@ -2,6 +2,8 @@ class Aprofile < ActiveRecord::Base
   attr_accessible :department_id, :f_name, :l_name, :urn, :academic_id
   belongs_to :academic, :foreign_key => :academic_id
   belongs_to :department, :foreign_key => :department_id
+  validates_uniqueness_of :urn
+  validates_presence_of :department_id, :f_name, :l_name, :urn
   
   def to_param
     academic_id
@@ -12,5 +14,9 @@ class Aprofile < ActiveRecord::Base
    
   def name
     "#{l_name}, #{f_name}"
+  end
+  
+  def name_project
+    "#{self.name}, #{self.academic.title}"
   end
 end

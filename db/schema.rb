@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130705085750) do
+ActiveRecord::Schema.define(:version => 20130709205056) do
 
   create_table "academics", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -71,6 +71,14 @@ ActiveRecord::Schema.define(:version => 20130705085750) do
   end
 
   add_index "aprofiles", ["urn"], :name => "altered_aprofiles_urn_ix", :unique => true
+
+  create_table "choices", :force => true do |t|
+    t.integer  "student_id"
+    t.integer  "project_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "rank"
+  end
 
   create_table "courses", :force => true do |t|
     t.string   "title"

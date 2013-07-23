@@ -5,6 +5,9 @@ class Sprofile < ActiveRecord::Base
   belongs_to :department, :foreign_key => :department_id
   belongs_to :course, :foreign_key => :course_id
   
+  validates_uniqueness_of :urn
+  validates_presence_of :course_id, :degree, :department_id, :f_name, :l_name, :urn
+  
   def to_param
     student_id
   end
@@ -17,5 +20,5 @@ class Sprofile < ActiveRecord::Base
   end
   
   def collection_select method, collection, value_method, text_method, options = {}, html_options = {}
-   end
+  end
 end

@@ -2,16 +2,13 @@ class Admin::CoursesController < AdminController
   before_filter :load_department
   def index
     @courses = @department.courses.order(:title)
-    #@departments = Department.all
   end
   
   def show
     @course = @department.courses.find(params[:id])
-    #@course = Course.find_by_id(params[:id])
   end
   
   def new
-    #@course = Course.new
     @course = @department.courses.new
   end
   
@@ -28,9 +25,6 @@ class Admin::CoursesController < AdminController
   end
   
   def edit
-    #@department = Department.find(params[:id])
-    #@course = Course.find_by_id(params[:id])
-    #@course = Course.find_by_id(params[:id])
     @course = @department.courses.find(params[:id])
   end
   

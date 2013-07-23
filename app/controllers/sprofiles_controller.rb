@@ -10,6 +10,8 @@ class SprofilesController < ApplicationController
   
   def create
     @sprofile = Sprofile.new(params[:sprofile])
+    @departments = Department.order(:title)
+    @courses = Course.order(:title)
     @sprofile.student_id = current_student.id
     if @sprofile.save
       flash[:notice] = "You have created your profile successfully!"
@@ -42,6 +44,8 @@ class SprofilesController < ApplicationController
     
     def update
       @sprofile = Sprofile.find_by_student_id(params[:id])
+      @departments = Department.order(:title)
+      @courses = Course.order(:title)
       if @sprofile.update_attributes(params[:sprofile])
         flash[:notice] = "Your profile was successfully updated!"
         redirect_to sprofile_path(@sprofile)

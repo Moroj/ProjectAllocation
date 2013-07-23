@@ -1,7 +1,9 @@
 class Project < ActiveRecord::Base
   attr_accessible :academic_id, :description, :number, :requirements, :resources, :title, :total_students
-  
   belongs_to :academic, :foreign_key => :academic_id
+  has_many :choices
+  validates_presence_of :description, :number, :requirements, :resources, :title, :total_students
+  validates_uniqueness_of :number, :title
   
   def collection_select method, collection, value_method, text_method, options = {}, html_options = {}
   end

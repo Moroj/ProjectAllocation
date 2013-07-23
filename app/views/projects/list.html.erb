@@ -22,8 +22,26 @@
     <th>Project Title</th>
     <th></th>
     <th></th>
-    <th></th>
+
   </tr>
-	<%= render @projects%>
+	<%= render 'projects/project'%>
 </table>
 
+<% if student_signed_in? %>
+<h1>Project Choices</h1>
+<table 	class="table table-striped table-bordered  table-condensed" id="choices_table">
+	<thead class="header">
+  <tr>
+    <th>Order</th>
+    <th>Project Title</th>
+    
+    
+  </tr>
+</thead>
+<tbody>
+
+	<%= render :partial =>  '/choices/choice', :collection => current_student.choices %>	
+
+</tbody>
+</table>
+<%end%>

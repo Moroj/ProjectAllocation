@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate_academic!, :except => [:list, :show]
+  
 
   def index
     @projects = Project.where(academic_id: current_academic.id).find(:all)
@@ -50,6 +51,7 @@ class ProjectsController < ApplicationController
   
   def list
     @projects = Project.get_projects(params).order(:title)
+    @choice = Choice.new
     respond_to do |format|
           format.html # index.html.erb
           format.json { render json: @projects }

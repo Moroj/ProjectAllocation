@@ -20,7 +20,14 @@
 	<b>Resources:</b>
 	<%= @project.resources %>
 </p>	
-<%# if can? :manage, @project %>
-<%= link_to "Edit", edit_project_path(@project)  if can? :manage, @project %> |
-<%#end%>
-<%= link_to "Back", projects_path %>
+
+<ul class='nav nav-pills'>
+<li>
+	<%if current_academic%>
+<%= link_to "Edit", edit_project_path(@project) %></li> 
+
+<li><%= link_to "Back", projects_path%></li>
+<%end%>
+<%if current_student%>
+<li><%= link_to "Back to Project List", project_list_path %></li></ul>
+<%end%>

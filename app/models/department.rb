@@ -5,4 +5,6 @@ class Department < ActiveRecord::Base
   has_many :sprofiles
   has_many :aprofiles
   has_many :academics, :through => :aprofiles
+  has_many :projects, :through => :academics
+  validates_uniqueness_of :title
 end

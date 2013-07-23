@@ -1,8 +1,9 @@
 <% provide(:title, 'Change Password')%>
-<h1>Change Your Password</h1>
-
 <div class="row">
 <div class="span6 offset3">
+<h1>Change Your Password</h1>
+
+
 <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
   <%= f.hidden_field :reset_password_token %>
@@ -13,7 +14,7 @@
   <div><%= f.label :password_confirmation, "Confirm new password" %><br />
   <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.submit "Change my password", class: "btn btn-large btnprimary" %></div>
+  <div><%= f.submit "Change my password", class: "btn btn-primary" %></div>
 <% end %>
 
 <%= render "students/shared/links" %>

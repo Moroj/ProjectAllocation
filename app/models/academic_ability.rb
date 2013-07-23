@@ -3,7 +3,7 @@ class AcademicAbility
   
   
   def initialize(current_academic)
-      can :manage, Project do |project|
+      can :read, Project  do |project|
         project.academic_id == current_academic.id
       end
       can :manage, Aprofile

@@ -1,8 +1,11 @@
 <% provide(:title, 'Create a student user') %>
 <h1>Create a student user</h1>
-
+<div class="row">
+	<div class="span6 offset3">
 <%= form_for @student, :url => admin_students_path do |f| %>
-
+<% @student.errors.full_messages.each do |msg| %>
+      <p><%= msg %></p>
+<% end %>
   
   <p><%= f.label :email %><br />
   <%= f.email_field :email %></p>
@@ -13,6 +16,8 @@
   <p><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></p>
 
-  <p><%= f.submit "Submit", class: "btn btn-large btn-primary" %></p>
+  <p><%= f.submit "Submit", class: "btn  btn-primary" %></p>
 
 <% end %>
+</div>
+</div>

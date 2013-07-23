@@ -8,11 +8,25 @@ ProjectAllocation::Application.routes.draw do
     end
   end
     
-  devise_for :admins
+  devise_for :admins, :skip => [:registrations]
+    as :admin do 
+      get 'admins/edit' => 'devise/registrations#edit', :as => 'edit_admin_registration'    
+      put 'admins' => 'devise/registrations#update', :as => 'admin_registration'
+    end
 
-  devise_for :academics
+  devise_for :academics, :skip => [:registrations]
+    as :academic do 
+      get 'academics/edit' => 'devise/registrations#edit', :as => 'edit_academic_registration'    
+      put 'academics' => 'devise/registrations#update', :as => 'academic_registration'
+    end
 
-  devise_for :students
+  devise_for :students, :skip => [:registrations]
+    as :student do 
+      get 'students/edit' => 'devise/registrations#edit', :as => 'edit_student_registration'    
+      put 'students' => 'devise/registrations#update', :as => 'student_registration'
+  end
+  
+  resources :choices
   
   resources :projects
   
@@ -26,15 +40,19 @@ ProjectAllocation::Application.routes.draw do
   
   match '/contact', to: 'static_pages#contact'
   
-  match '/adashboard', to: 'static_pages#adashboard'
+  #match '/adashboard', to: 'static_pages#adashboard'
   
-  match '/sdashboard', to: 'static_pages#sdashboard'
+  #match '/sdashboard', to: 'static_pages#sdashboard'
   
   match '/update_courses', to:  'sprofiles#update_courses'
   
-  match '/update_academics', to: 'projects#update_academics'
+  #match '/update_academics', to: 'projects#update_academics'
+  
+  match '/update_choices', to: 'choices#update_choices'
   
   match '/project_list', to: 'projects#list'
+  
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
