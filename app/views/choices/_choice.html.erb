@@ -1,8 +1,23 @@
+
+	
+	<%#= content_tag_for :li, choice do %>
 	<tr>
-	<td><%= choice.rank %></td>
-	<td><%= choice.project.title %></td>
 	
-	
-<%#= link_to 'Edit', edit_choice_path(choice.id) %> 
-	<%#= link_to 'Destroy', choice_path(choice.id), :confirm => 'Are you sure?', :method => :delete %>
+		<td><%= choice.row_order %></td>
+		<td><%= choice.project.title %></td>
+	<%#end%>
 	</tr>
+
+
+
+	<%#= '1'%>
+	<%#= choice.option1.title %>
+<%#= sortable_element("choices", :url => sort_choices_path)%>
+<%#= sortable_element :choices, :tag => 'ul',  :url => sort_choices_path%>
+<%#= choice.move_to_bottom %>
+<div>
+<ul class='nav nav-pills'>	
+<li class="active"><%#= link_to 'Edit', edit_choice_path(choice.id) %></li>
+</ul>
+</div>
+	

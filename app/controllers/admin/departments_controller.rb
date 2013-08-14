@@ -16,7 +16,7 @@ class Admin::DepartmentsController < AdminController
     @department = Department.new(params[:department])
     if @department.save
       flash[:notice] = "You have created a new department!"
-      redirect_to root_path
+      redirect_to admin_departments_path
     else
       flash[:notice] = "Department not saved"
       render :action => 'new'

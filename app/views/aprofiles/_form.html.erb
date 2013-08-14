@@ -7,6 +7,9 @@
 		<%= f.label :urn, 'URN' %>
 		<%= f.text_field :urn %>
 		
+		<%= f.label :students_to_supervise, 'Maximum Number of Students to Supervise:' %>
+		<%= f.text_field :students_to_supervise %>
+		
 		<%= f.label :f_name, 'First Name' %>
 		<%= f.text_field :f_name %>
 		
@@ -16,7 +19,7 @@
 		<%= f.label :department, 'Department' %>
 		<%= f.collection_select( :department_id, Department.all, :id, :title, {:prompt => 'Select a department'}, {:id => 'departments_select'} ) %>
 		
-		<%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+		<%= f.submit "Submit", class: "btn btn-primary" %>
 	<% end %>
 	</div>
 </div>

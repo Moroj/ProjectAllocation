@@ -1,5 +1,5 @@
 class Aprofile < ActiveRecord::Base
-  attr_accessible :department_id, :f_name, :l_name, :urn, :academic_id
+  attr_accessible :department_id, :f_name, :l_name, :urn, :academic_id, :students_to_supervise
   belongs_to :academic, :foreign_key => :academic_id
   belongs_to :department, :foreign_key => :department_id
   validates_uniqueness_of :urn

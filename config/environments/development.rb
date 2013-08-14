@@ -35,6 +35,11 @@ ProjectAllocation::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   
+  config.gem "factory_girl_rails", :lib => 'factory_girl_rails', :source => 'http://gems.github.com'
+  config.gem "rspec", :version => '1.2.2', :lib => 'spec'
+  config.gem "rspec-rails", :version => '1.2.2', :lib => false
+  
+  
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp

@@ -52,11 +52,12 @@ class ProjectsController < ApplicationController
   def list
     @projects = Project.get_projects(params).order(:title)
     @choice = Choice.new
-    respond_to do |format|
-          format.html # index.html.erb
-          format.json { render json: @projects }
-          format.js
-        end
+    
+   # respond_to do |format|
+          #format.html # index.html.erb
+          #format.json { render json: @projects }
+          #format.js
+       # end
   end
   
 end

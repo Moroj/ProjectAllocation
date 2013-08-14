@@ -11,7 +11,7 @@ class Academic < ActiveRecord::Base
   has_many :projects, :dependent => :destroy
   has_many :students, :through => :projects
   belongs_to :department
-  
+  belongs_to :alloc
   validates_uniqueness_of :email
   
   def title

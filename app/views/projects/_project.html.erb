@@ -1,20 +1,21 @@
 <% @projects.each do |project| %>
 <% project.choices.each do |choice| %>
-<% choice.errors.each do |msg|%>
+<% project.errors.each do |msg|%>
 <%= msg%>
 <%end%>
 <%end%>
 
-  <tr>
-    <td><%= project.number %></td>
-    <td><%= project.title %></td>
-    <td><%= link_to 'Show', project %></td>
+<tr>
+    <td class='center_content'><%= project.number %></td>
+    <td class='vcenter'><%= project.title %></td>
+    <td class='center_content'><%= link_to 'Show', project %></td>
 <% if current_academic %>
-    <td><%= link_to 'Edit', edit_project_path(project) %></td>
-    <td><%= link_to 'Destroy', project, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+    <td class='center_content'><%= link_to 'Edit', edit_project_path(project) %></td>
+    <td class='center_content'><%= link_to 'Destroy', project, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
 <%end%>
 <% if current_student %>
-	<td><%= button_to "Add to choices", choices_path(:project_id => project), class: "btn btn-link"%></td>
-<%end%>	
-	<%end%>
-  </tr>
+	<td class='vcenter'><%= button_to "Add to choices", choices_path(:project_id => project), class: "btn"%></td>
+<%end%>
+<%end%>
+
+</tr>

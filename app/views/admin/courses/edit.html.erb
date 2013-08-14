@@ -1,5 +1,6 @@
 <h1>Editing course</h1>
-
+<div class="row">
+	<div class="span6 offset3">
 <%= form_for [:department, @course], :url => admin_department_course_path(@department, @course) do |f| %>
   
   <div class="field">
@@ -7,5 +8,7 @@
     <%= f.text_field :title %>
   </div>
 
-  <p><%= f.submit %></p>
+  <p><%= f.submit "Submit", class: "btn btn-primary" %></p>
 <% end %>
+</div>
+</div>

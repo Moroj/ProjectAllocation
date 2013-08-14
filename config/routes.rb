@@ -1,59 +1,62 @@
 ProjectAllocation::Application.routes.draw do
-   
+  
   namespace :admin do
-    resources :students 
-    resources :academics
-    resources :departments do
-      resources :courses
-    end
-  end
-    
-  devise_for :admins, :skip => [:registrations]
-    as :admin do 
-      get 'admins/edit' => 'devise/registrations#edit', :as => 'edit_admin_registration'    
-      put 'admins' => 'devise/registrations#update', :as => 'admin_registration'
-    end
+     resources :students 
+     resources :academics
+     resources :departments do
+       resources :courses
+     end
+   end
+   
+   devise_for :admins, :skip => [:registrations]
+       as :admin do 
+         get 'admins/edit' => 'devise/registrations#edit', :as => 'edit_admin_registration'    
+         put 'admins' => 'devise/registrations#update', :as => 'admin_registration'
+       end
 
-  devise_for :academics, :skip => [:registrations]
-    as :academic do 
-      get 'academics/edit' => 'devise/registrations#edit', :as => 'edit_academic_registration'    
-      put 'academics' => 'devise/registrations#update', :as => 'academic_registration'
-    end
+     devise_for :academics, :skip => [:registrations]
+       as :academic do 
+         get 'academics/edit' => 'devise/registrations#edit', :as => 'edit_academic_registration'    
+         put 'academics' => 'devise/registrations#update', :as => 'academic_registration'
+       end
 
-  devise_for :students, :skip => [:registrations]
-    as :student do 
-      get 'students/edit' => 'devise/registrations#edit', :as => 'edit_student_registration'    
-      put 'students' => 'devise/registrations#update', :as => 'student_registration'
-  end
+     devise_for :students, :skip => [:registrations]
+       as :student do 
+         get 'students/edit' => 'devise/registrations#edit', :as => 'edit_student_registration'    
+         put 'students' => 'devise/registrations#update', :as => 'student_registration'
+     end
   
-  resources :choices
-  
-  resources :projects
-  
-  resources :aprofiles
-  
-  resources :sprofiles 
-  
-  resources :admin
-  
-  root to: 'static_pages#home'
-  
-  match '/contact', to: 'static_pages#contact'
-  
-  #match '/adashboard', to: 'static_pages#adashboard'
-  
-  #match '/sdashboard', to: 'static_pages#sdashboard'
-  
-  match '/update_courses', to:  'sprofiles#update_courses'
-  
-  #match '/update_academics', to: 'projects#update_academics'
-  
-  match '/update_choices', to: 'choices#update_choices'
-  
-  match '/project_list', to: 'projects#list'
-  
-  
+   resources :allocs 
+   
+   match 'csv' => 'allocs#export', :as => :csv
+   
+   resources :projects
+   
+   resources :choices do
+     collection { post :sort}
+   end
 
+   resources :aprofiles
+
+   resources :sprofiles 
+
+   resources :admin
+
+   root to: 'static_pages#home'
+
+   match '/contact', to: 'static_pages#contact'
+
+   #match '/adashboard', to: 'static_pages#adashboard'
+
+   #match '/sdashboard', to: 'static_pages#sdashboard'
+
+   match '/update_courses', to:  'sprofiles#update_courses'
+
+   match '/update_academics', to: 'projects#update_academics'
+
+   match '/project_list', to: 'projects#list'
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

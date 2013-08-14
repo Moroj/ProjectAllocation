@@ -3,15 +3,16 @@
 
 <table class="table table-striped table-bordered table-condensed"  align='center' cellpadding='5'>
   <tr>
-	<th>Academic URN</th>
-    <th>Full Name</th>
-    <th>Email</th>
-	<th>Department</th>
-	<th>&nbsp;</th>
+	<th class='center_content'>Academic URN</th>
+	<th class='center_content'>Students to Supervise</th>
+    <th class='center_content'>Full Name</th>
+    <th class='center_content'>Email</th>
+	<th class='center_content'>Department</th>
+	<th class='center_content' width='5%'></th>
   </tr>
-
+<% if @academics.present? %>
 <%= render @academics%>
-
+<%end%>
 </table>
 <ul class='nav nav-pills'>
 <li class="active">

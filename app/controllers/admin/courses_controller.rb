@@ -17,9 +17,10 @@ class Admin::CoursesController < AdminController
     @course = @department.courses.build(params[:course])
     if @course.save
       flash[:notice] = "You have created a new course!"
-      redirect_to root_path
+      redirect_to admin_department_path(@department.id)
     else
       flash[:notice] = "Course not saved"
+      #redirect_to admin_dapartment_path(@department.id)
       render :action => 'new'
     end
   end

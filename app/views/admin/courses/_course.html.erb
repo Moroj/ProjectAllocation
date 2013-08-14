@@ -2,6 +2,6 @@
 
 
 	<tr><td><%= course.title %></td>
-	<td><%= link_to 'Edit', edit_admin_department_course_path(@department.id, course) %></td>
-	<td><%= link_to 'Delete', admin_department_course_path(@department.id, course), :confirm => 'Are you sure?', :method => :delete %></td>
+	<td class='center_content'><%= link_to 'Edit', edit_admin_department_course_path(@department.id, course) %></td>
+	<td class='center_content'><%= link_to 'Delete', admin_department_course_path(@department.id, course), :confirm => 'Are you sure?', :method => :delete %></td>
 	</tr>

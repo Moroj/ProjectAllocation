@@ -9,10 +9,22 @@
 	      <p><%= msg %></p>
 	<% end %>
 	
-	<%= f.label :project_id, 'Project Option:'%>
-	<%= f.collection_select(  :project_id, @projects, :id, :title, {:prompt => "Select a project "}, {:id => 'choices_select'})%>
+	<%= f.label :op1, '1st Choice:'%>
+	<%= f.collection_select( :op1, Project.find(:all), :id, :title, {:prompt => "Select a project "}, {:id => 'choices_select'})%>
+	
+	<%= f.label :op2, '2nd Choice:'%>
+	<%= f.collection_select( :op2, Project.find(:all), :id, :title, {:prompt => "Select a project "}, {:id => 'choices_select2'})%>
+	
+	<%= f.label :op3, '3rd Choice:'%>
+	<%= f.collection_select( :op3, Project.find(:all), :id, :title, {:prompt => "Select a project "}, {:id => 'choices_select3'})%>
+	
+	<%= f.label :op4, '4th Choice:'%>
+	<%= f.collection_select( :op4, Project.find(:all), :id, :title, {:prompt => "Select a project "}, {:id => 'choices_select4'})%>
+	
+	<%= f.label :op5, '5th Choice:'%>
+	<%= f.collection_select( :op5, Project.find(:all), :id, :title, {:prompt => "Select a project "}, {:id => 'choices_select5'})%>
 
-  <p><%= f.submit "Submit", class: "btn btn-large btn-primary" %></p>
+  <p><%= f.submit "Submit", class: "btn  btn-primary" %></p>
 
 	<script>
 	

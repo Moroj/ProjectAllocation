@@ -1,6 +1,7 @@
 
 <tr>
 	<td><%= academic.aprofile.nil? ?  "empty" : academic.aprofile.urn %></td>
+	<td><%= academic.aprofile.nil? ?  "empty" : academic.aprofile.students_to_supervise %></td>
 	<td><%= academic.aprofile.nil? ? "empty" : academic.aprofile.name %></td>
 	<td><%= academic.email %></td>
 	<td><%= academic.aprofile.nil? ? "empty" : academic.aprofile.department.title %></td>

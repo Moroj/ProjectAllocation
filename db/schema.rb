@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130709205056) do
+ActiveRecord::Schema.define(:version => 20130805114021) do
 
   create_table "academics", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -60,24 +60,36 @@ ActiveRecord::Schema.define(:version => 20130709205056) do
   add_index "admins", ["email"], :name => "index_admins_on_email", :unique => true
   add_index "admins", ["reset_password_token"], :name => "index_admins_on_reset_password_token", :unique => true
 
+  create_table "allocs", :force => true do |t|
+    t.integer  "student_id"
+    t.integer  "project_id"
+    t.integer  "academic_id"
+    t.datetime "scheduled_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.datetime "delivered_at"
+    t.string   "title"
+  end
+
   create_table "aprofiles", :force => true do |t|
     t.integer  "urn"
     t.string   "f_name"
     t.string   "l_name"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
     t.integer  "academic_id"
     t.integer  "department_id"
+    t.integer  "students_to_supervise"
   end
 
   add_index "aprofiles", ["urn"], :name => "altered_aprofiles_urn_ix", :unique => true
 
   create_table "choices", :force => true do |t|
     t.integer  "student_id"
-    t.integer  "project_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "rank"
+    t.integer  "project_id"
+    t.integer  "position"
   end
 
   create_table "courses", :force => true do |t|
