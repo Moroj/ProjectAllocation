@@ -5,7 +5,7 @@
   <tr>
   
     <th class='center_content' width='70%'>Title</th>
-    <th class='center_content' width='20%'>Completed on</th>
+    <th class='center_content' width='20%'>Process Completed on</th>
 	<th class='center_content' width='10%'></th>
 	
 </tr>
@@ -13,13 +13,10 @@
 <% for alloc in @allocs %>
   <tr>
     <td><%= link_to h(alloc.title), alloc %></td>
-    <%# unless alloc.delivered_at.nil? %>
 	<% if alloc.delivered_at.present?%>
       <td class='center_content'><%= alloc.delivered_at.to_s(:long) %></td>
     <% end %>
-    <%#= link_to "Edit", edit_mailing_path(mailing) %> 
     <td class='center_content' ><%= link_to "Destroy", alloc, :confirm => 'Are you sure?', :method => :delete %></td> 
-    <%#= link_to "Deliver", allocation_alloc_path(alloc), :confirm => 'Are you sure?', :method => :post %>
  </tr>
 <% end %>
 

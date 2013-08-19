@@ -1,10 +1,7 @@
 #!/usr/bin/env python
 import os
 import networkx as nx
-import sqlite3
 import csv
-import sys
-
 
 G = nx.DiGraph()
 f = open("/Users/morojalsulaimani/ProjectAllocation/app/views/allocs/report.txt", 'wb')
@@ -45,18 +42,24 @@ for u,v,d in List4:
 flowCost, flowDict = nx.network_simplex(G)
 print "Optimum: %s" %flowCost
 print "Simplex_Flow_Dict: %s" %flowDict
-
-mincostFlow = nx.max_flow_min_cost(G, 'S', 'T')
-print "Max_flow_min_cost: %s" %mincostFlow
-r = str(mincostFlow)
-f.write("Max_flow_min_cost: ")
+r = str(flowCost)
+f.write("Flow Cost: ")
 f.write(r)
+d = str(flowDict)
+f.write('FlowDict: ')
+f.write(d)
+
+#mincostFlow = nx.max_flow_min_cost(G, 'S', 'T')
+#print "Max_flow_min_cost: %s" %mincostFlow
+#r = str(mincostFlow)
+#f.write("Max_flow_min_cost: ")
+#f.write(r)
 	
 	
-flowDict = nx.min_cost_flow(G)
-print "Min_cost_flow: %s" %flowDict
+#flowDict = nx.min_cost_flow(G)
+#print "Min_cost_flow: %s" %flowDict
 	
-flowCost = nx.min_cost_flow_cost(G)
-print "Min_cost_flow_cost(FlowCost): %s" %flowCost
+#flowCost = nx.min_cost_flow_cost(G)
+#print "Min_cost_flow_cost(FlowCost): %s" %flowCost
 		
 

@@ -4,12 +4,6 @@ class Project < ActiveRecord::Base
   has_many :choices
   accepts_nested_attributes_for :choices
   
-  #has_many :occurences, :as => 'option1', :foreign_key => 'op1', :class_name => "Choice" 
-  #has_many :occurences, :as => 'option2', :foreign_key => 'op2', :class_name => "Choice"
-  #has_many :occurences, :as => 'option3', :foreign_key => 'op3', :class_name => "Choice"
-  #has_many :occurences, :as => 'option4', :foreign_key => 'op4', :class_name => "Choice"
-  #has_many :occurences, :as => 'option5', :foreign_key => 'op5', :class_name => "Choice"
- 
   validates_presence_of :description, :number, :requirements, :resources, :title, :total_students
   validates_uniqueness_of :number, :title
   belongs_to :alloc

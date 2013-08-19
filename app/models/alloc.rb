@@ -1,21 +1,22 @@
 class Alloc < ActiveRecord::Base
   attr_accessible :scheduled_at, :delivered_at, :title
-  #attr_accessor :scheduled_at, :delivered_at
-#  has_many :students
-#  has_many :academics
-#  has_many :projects
-#  has_many :choices
-#  has_many :sprofile
+  before_save :capitalize_title
   validates_uniqueness_of :title
+  validates_presence_of :title
+  
+  def capitalize_title
+     self.title = self.title.titleize
+   end
+   
+   
   def self.next_for_allocation
     alloc = Alloc.first(:conditions => ["delivered_at IS NULL AND scheduled_at <= ?", Time.now], :order => "scheduled_at")
-   
     puts "new"
     if alloc
       Alloc.export
+      system 'python /Users/morojalsulaimani/ProjectAllocation/app/views/allocs/allocDB3.py'
       alloc.update_column(:scheduled_at, nil)
       alloc.update_column(:delivered_at, Time.now)
-      system 'python /Users/morojalsulaimani/ProjectAllocation/app/views/allocs/allocDB3.py'
       puts "!"
       end
     end

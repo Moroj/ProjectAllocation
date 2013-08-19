@@ -28,7 +28,9 @@ ProjectAllocation::Application.routes.draw do
   
    resources :allocs 
    
-   match 'csv' => 'allocs#export', :as => :csv
+   #match 'csv' => 'allocs#export', :as => :csv
+   
+   match '/result', to: 'allocs#result'
    
    resources :projects
    

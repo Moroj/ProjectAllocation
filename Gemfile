@@ -9,7 +9,7 @@ gem 'whenever', :require => false
 gem 'heroku'
 gem "acts_as_list"
 gem 'rspec'
-
+gem 'bootstrap-sass', '~> 2.3.2.1'
 #gem 'ranked-model', "~> 0.3"
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -23,7 +23,7 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'bootstrap-sass', '~> 2.3.2.1'
+  
   gem 'sass-rails',   '3.2.5'
   gem 'coffee-rails', '3.2.2'
   gem "jquery-rails"
@@ -49,7 +49,7 @@ end
 
 #gem 'jquery-rails'
 gem 'devise'          
-gem 'cancan'
+
 #gem 'will_paginate', '3.0.pre2'
 
 

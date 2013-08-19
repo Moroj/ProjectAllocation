@@ -1,4 +1,8 @@
-
+<% provide(:title) %>
+Download:
+  <%= link_to "Excel", alloc_path(format: "xls") %><br /> 
+View Allocation Result:
+  <%= link_to 'Results', result_path %>
 <table class="table table-striped table-bordered table-condensed" align='center' cellpadding='5'>
   <tr>
 	<th class='center_content' width='10%'>Student URN</th>
@@ -22,6 +26,3 @@
 <%end%>
   </table>
 
-Download:
-  <%#= link_to "CSV", alloc_path(format: "csv") %> |
-	<%= link_to "CSV", csv_path %>

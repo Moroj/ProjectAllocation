@@ -1,4 +1,5 @@
 class Aprofile < ActiveRecord::Base
+  before_save :capitalize_name
   attr_accessible :department_id, :f_name, :l_name, :urn, :academic_id, :students_to_supervise
   belongs_to :academic, :foreign_key => :academic_id
   belongs_to :department, :foreign_key => :department_id
@@ -18,5 +19,10 @@ class Aprofile < ActiveRecord::Base
   
   def name_project
     "#{self.name}, #{self.academic.title}"
+  end
+  
+  def capitalize_name
+    self.l_name.capitalize!
+    self.f_name.capitalize!
   end
 end

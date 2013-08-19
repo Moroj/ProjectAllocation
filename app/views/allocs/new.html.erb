@@ -3,12 +3,9 @@
 <div class="row">
 	<div class="span9 offset2">
 <%= form_for @alloc do |f| %>
-	<%#= f.student_id %>
-	<%#= f.project.title %>
-	<%= f.label :title %>
+	<%= f.label :title, "Title:" %>
 	<%= f.text_field :title%>
-	<%= f.label :scheduled_at, "Schedule Delivery:" %><br />
-	<%#= f.datetime_select :scheduled_at %>
+	<%= f.label :scheduled_at, "Allocation Date:" %>
 	<%= f.datetime_select :scheduled_at, {:prompt => { :minute => 'Select minutes', :second => '', :day => 'Select day', :month => 'Select month', :year => 'Select year' }}, {:class => 'date-select'}  %><br />
 	
 	

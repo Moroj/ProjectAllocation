@@ -27,9 +27,5 @@ MAILTO='malsulaimani@yahoo.com'
 # end
 every 1.minutes do
   runner "Alloc.next_for_allocation"
- # alloc = Alloc.next_for_allocation
-  #if alloc
-  #  alloc.allocation
-  #end
 end
 # Learn more: http://github.com/javan/whenever

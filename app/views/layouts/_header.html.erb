@@ -18,7 +18,7 @@
 				<li><%= link_to "Students Index", admin_students_path%></li>
 				<li><%= link_to "Departments and Courses", admin_departments_path%></li>
 				<li><%= link_to "Change your password", edit_admin_registration_path %></li>
-				<li><%= link_to "Add allocation date", allocs_path%>
+				<li><%= link_to "Add allocation date", allocs_path%></li>
 				<li class="divider"></li>
 				<li><%= link_to "Sign out", destroy_admin_session_path, method: "delete" %></li>
 		  <%else%>
@@ -34,7 +34,7 @@
 			     	<li><%= link_to "View Profile", sprofile_path(current_student.id) %></li>
 				<%end%>
 			     <li><%= link_to "View Projects", project_list_path %></li>
-				 <li><%= link_to "Change your password", edit_student_registration_path %>
+				 <li><%= link_to "Change your password", edit_student_registration_path %></li>
 			     <li class="divider"></li>
 			     <li>
 			        <%= link_to "Sign out", destroy_student_session_path, method: "delete" %>

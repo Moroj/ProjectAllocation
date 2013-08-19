@@ -3,8 +3,6 @@ class AllocsController < ApplicationController
     
   def index
     @allocs = Alloc.find(:all)
-    
-   # @allocs = Student.find(:all, :joins => "LEFT JOIN 'choices' ON student_id = choices.student_id, LEFT JOIN 'projects' ON choices.project_id = project.id, LEFT JOIN 'academics' ON projects.academic_id = academic.id")
   end
   
   def show
@@ -18,22 +16,12 @@ class AllocsController < ApplicationController
     
     respond_to do |format|
       format.html
+      format.xls
       #format.csv { send_data @choices.to_csv}
     end
     
   end
   
-  def export
-    @choices = Choice.all(:include => [:student, :sprofile, :project, :academic, :aprofile])
-    csv = CSV.open("/Users/morojalsulaimani/ProjectAllocation/app/views/allocs/inputs.csv", "w") do |csv|
-        #csv << ["Student_id", "C_Weight", "Choice", "P_Capacity", "Academic_id", "A_Capacity"]
-         @choices.each do |s|
-               csv << [s.student_id, s.position, s.project_id, s.project.total_students, s.project.academic_id, s.aprofile.students_to_supervise]
-           end
-        end
-    
-    redirect_to allocs_path
-  end
   
   def new
     @alloc = Alloc.new
@@ -68,5 +56,8 @@ class AllocsController < ApplicationController
     @alloc.destroy
     flash[:notice] = "Successfully destroyed."
     redirect_to allocs_path
+  end
+  
+  def result
   end
 end
