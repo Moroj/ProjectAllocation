@@ -50,7 +50,7 @@ ProjectAllocation::Application.configure do
     :port => 587,
     :domain => "gmail.com",
     :authentication => :login,
-    :user_name => "malsulaimani8@gmail.com",
-    :password => "mAA15951595",
+    :user_name => "example@gmail.com",
+    :password => "**",
   }
 end
