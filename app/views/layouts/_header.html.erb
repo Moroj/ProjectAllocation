@@ -7,7 +7,7 @@
       <nav>
         <ul class="nav pull-right">
           <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Help", '#' %></li>
+          <li><%= link_to "Help", '/help' %></li>
 		 <% if admin_signed_in? %>
 			<li id="fat-menu" class="dropdown">
 			   <a  class="dropdown-toggle" data-toggle="dropdown">
@@ -32,9 +32,9 @@
 					<li><%= link_to "Create Profile", '/sprofiles/new' %></li>
 				<%else%>	
 			     	<li><%= link_to "View Profile", sprofile_path(current_student.id) %></li>
+			     	<li><%= link_to "View Projects", project_list_path %></li>
+				 	<li><%= link_to "Change your password", edit_student_registration_path %></li>
 				<%end%>
-			     <li><%= link_to "View Projects", project_list_path %></li>
-				 <li><%= link_to "Change your password", edit_student_registration_path %></li>
 			     <li class="divider"></li>
 			     <li>
 			        <%= link_to "Sign out", destroy_student_session_path, method: "delete" %>
@@ -52,9 +52,9 @@
 					<li><%= link_to "Create Profile", '/aprofiles/new' %></li>
 				<%else%>	
 			     	<li><%= link_to "View Profile", aprofile_path(current_academic.id) %></li>
+			     	<li><%= link_to "Change your password", edit_academic_registration_path %></li>
+				 	<li><%= link_to 'Manage Projects', projects_path %></li>
 				<%end%>
-			     <li><%= link_to "Change your password", edit_academic_registration_path %></li>
-				 <li><%= link_to 'Manage Projects', projects_path %></li>
 			     <li class="divider"></li>
 			     <li>
 			        <%= link_to "Sign out", destroy_academic_session_path, method: "delete" %>
@@ -66,7 +66,7 @@
 				<li><%= link_to "Academics Sign in", new_academic_session_path %></li>
 		   <% end %>
 		   <% end %>
-		   <%end%>
+		   <% end %>
         </ul>
       </nav>
     </div>

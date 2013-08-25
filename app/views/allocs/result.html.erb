@@ -1,6 +1,11 @@
 <% provide(:title) %>
 
 <h1>Allocation Results</h1>
+
+<ul class='nav nav-pills'>
+	<li class="active"><%= link_to 'Back', allocs_path %></li>
+</ul>
+
 <pre>
-<%= render file: '/Users/morojalsulaimani/ProjectAllocation/app/views/allocs/report.txt'%>
+	<%= render file: Rails.root.join("app", "views", "allocs", "report.txt").to_s %>
 </pre>

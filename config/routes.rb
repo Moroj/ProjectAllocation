@@ -48,9 +48,7 @@ ProjectAllocation::Application.routes.draw do
 
    match '/contact', to: 'static_pages#contact'
 
-   #match '/adashboard', to: 'static_pages#adashboard'
-
-   #match '/sdashboard', to: 'static_pages#sdashboard'
+   match '/help', to: 'static_pages#help'
 
    match '/update_courses', to:  'sprofiles#update_courses'
 

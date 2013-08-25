@@ -7,21 +7,23 @@
   <Worksheet ss:Name="Sheet1">
     <Table>
       <Row>
-        <Cell><Data ss:Type="String">Student URN</Data></Cell>
+		<Cell><Data ss:Type="String">Student URN</Data></Cell>
         <Cell><Data ss:Type="String">Student Name</Data></Cell>
-        <Cell><Data ss:Type="String">Choices</Data></Cell>
-        <Cell><Data ss:Type="String">Project Capacity</Data></Cell>
-		<Cell><Data ss:Type="String">Academic Name</Data></Cell>
-        <Cell><Data ss:Type="String">Supervision Capacity</Data></Cell>
+		<Cell><Data ss:Type="String">Rank</Data></Cell>
+		<Cell><Data ss:Type="String">Project ID</Data></Cell>
+        <Cell><Data ss:Type="String">Selected Projects</Data></Cell>
+		<Cell><Data ss:Type="String">Academic URN</Data></Cell>
+        <Cell><Data ss:Type="String">Academic Name</Data></Cell>
       </Row>
     <% @choices.to_a.each do |s| %>
       <Row>
-        <Cell><Data ss:Type="Number"><%= s.sprofile.nil? ?  "empty" : s.sprofile.urn %></Data></Cell>
+		<Cell><Data ss:Type="Number"><%= s.sprofile.nil? ?  "empty" : s.sprofile.urn %></Data></Cell>
         <Cell><Data ss:Type="String"><%= s.sprofile.nil? ?  "empty" : s.sprofile.name %></Data></Cell>
+		<Cell><Data ss:Type="Number"><%= s.nil? ? 'nil' : s.position %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= s.project.nil? ? 'nil' : s.project.number %></Data></Cell>
         <Cell><Data ss:Type="String"><%= s.project.nil? ? 'nil' : s.project.title %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= s.project.nil? ? 'nil' : s.project.total_students %></Data></Cell>
+		<Cell><Data ss:Type="Number"><%= s.academic.nil? ? "empty" : s.aprofile.urn %></Data></Cell>
 		<Cell><Data ss:Type="String"><%= s.aprofile.nil? ? "empty" : s.aprofile.name %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= s.aprofile.nil? ? "empty" : s.aprofile.students_to_supervise %></Data></Cell>
       </Row>
     <% end %>
     </Table>
